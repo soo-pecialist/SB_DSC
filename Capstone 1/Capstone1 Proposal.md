@@ -21,7 +21,7 @@
 
   The target variable is compliance that will be added, which is True if the ticket was paid early, on time, or within one month of the hearing date, False if the ticket was paid after the hearing date or not at all, and Null if the violator was found not responsible. Because our goal is to predict compliance as correctly as possible, the evaluation metric for this project is the Area Under the ROC curve (AUC). Also, since we do not have separate train and test data. To validate BPM, I will split data into twofold: tickets issued from 2004 to 2014 and the rest (approximately 3:1 ratio).  
 
-  At first glance, the data contains many null values, which will be one of challenges to deal with. Not only does the data include numerical columns, it also text columns which will probably have to be converted to the categorical and it will involves decision of how unique it is to preserve or abandon the column. Next, I will have to study correlation of each column with target, compliance and collinearity among features. Lastly, many different models will be explored in order to deliver the best result. 
+  At first glance, the data contains many missing values, which will be one of challenges to deal with. Not only does the data include numerical columns, it also text columns which will probably have to be converted to the categorical and it will involves decision of how unique it is to preserve or abandon the feature. Next, I will study correlation of each column with target, compliance and collinearity among features. Lastly, many different models will be explored in order to deliver the best result. 
   
 
 
