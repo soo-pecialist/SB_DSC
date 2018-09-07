@@ -1,5 +1,4 @@
-/* 
-The data you need is in the "country_club" database. This database
+/*The data you need is in the "country_club" database. This database
 contains 3 tables:
     i) the "Bookings" table,
     ii) the "Facilities" table, and
@@ -36,20 +35,27 @@ facilities in question. */
 SELECT *
 	FROM Facilities
 	WHERE membercost > 0 
-	  AND membercost/monthlymaintenance < 0.2
+	  AND membercost < 0.2 * monthlymaintenance
 
 /* Q4: How can you retrieve the details of facilities with ID 1 and 5?
 Write the query without using the OR operator. */
+(
 SELECT * 
 	FROM Facilities
-	WHERE facid = 1 
-       OR facid = 5
+	WHERE facid = 1
+)
+UNION
+(
+SELECT * 
+	FROM Facilities
+	WHERE facid = 5
+)
 
 /* Q5: How can you produce a list of facilities, with each labelled as
 'cheap' or 'expensive', depending on if their monthly maintenance cost is
 more than $100? Return the name and monthly maintenance of the facilities
 in question. */
-SELECT *, 
+SELECT name, 
 	   CASE 
 		WHEN monthlymaintenance > 100 THEN 'expensive'
 		ELSE 'cheap' END AS 'label'
@@ -153,4 +159,3 @@ SELECT sub.fac_name AS facility_name,
 	GROUP BY 1
 	HAVING total_revenue < 1000
 	ORDER BY 2 DESC
-
